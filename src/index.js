@@ -5,8 +5,7 @@ import morgan from 'morgan';
 import { engine } from 'express-handlebars';
 
 // Get the equivalent of __dirname in ES modules
-const __filename = fileURLToPath(
-    import.meta.url);
+const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
@@ -20,9 +19,12 @@ app.use(express.static(join(__dirname, 'public')));
 
 app.use(morgan('combined'));
 
-app.engine('hbs', engine({
-    extname: '.hbs'
-}));
+app.engine(
+    'hbs',
+    engine({
+        extname: '.hbs',
+    }),
+);
 app.set('view engine', 'hbs');
 app.set('views', join(__dirname, 'resources', 'views'));
 

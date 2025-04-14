@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "main": "src/index.js",
     "scripts": {
+        "beautiful": "lint-staged",
         "start": "nodemon --inspect src/index.js",
         "watch": "sass src/resources/scss/app.scss src/public/css/app.css",
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,10 +22,16 @@
         "url": "https://github.com/tanlong242142343243/nodejs_blog/issues"
     },
     "homepage": "https://github.com/tanlong242142343243/nodejs_blog#readme",
+    "lint-staged": {
+        "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+    },
     "description": "",
     "dependencies": {
         "express": "^4.21.2",
         "express-handlebars": "^8.0.1",
+        "husky": "^9.1.7",
+        "lint-staged": "^15.5.1",
+        "prettier": "^3.5.3",
         "sass": "^1.86.1"
     },
     "devDependencies": {
